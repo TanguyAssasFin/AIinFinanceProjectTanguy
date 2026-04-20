@@ -1,10 +1,10 @@
-# Modélisation du Risque de Crédit – Défaut des Clients de Carte de Crédit
+# Credit-Risk Modelling with Default of Credit Card Clients
 
 ---
 
 ## 1. Informations sur le projet
 
-- **Titre du projet :** Prédiction du risque de défaut de crédit avec le Machine Learning  
+- **Titre du projet :** Credit-Risk Modelling with Default of Credit Card Clients
 
 - **Membre du groupe :**  
   - Tanguy CONVERSET  
