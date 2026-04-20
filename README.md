@@ -19,7 +19,7 @@
 
 Ce projet porte sur la **modélisation du risque de crédit**, avec pour objectif de prédire si un client de carte de crédit va faire défaut sur son paiement.
 
-Les institutions financières utilisent ce type de modèle pour évaluer le risque client avant d’accorder un crédit. Une mauvaise estimation peut entraîner des pertes financières importantes, tandis qu’une prédiction fiable permet d’améliorer la prise de décision et la rentabilité.
+Les institutions financières utilisent ce type de modèle pour évaluer le risque client avant d’accorder un crédit. Une mauvaise estimation peut entraîner des pertes financières, tandis qu’une prédiction fiable permet d’améliorer la prise de décision et la rentabilité.
 
 Ce projet est particulièrement pertinent pour :
 - Les banques et institutions financières  
@@ -49,15 +49,14 @@ Un modèle performant doit :
   - Historique de paiement  
   - Montants facturés  
   - Montants remboursés  
-  - Variables créées (utilisation du crédit, ratio de paiement, etc.)  
+  - Variables créées (utilisation du crédit, ratio de paiement, groupe d'âge)  
 
 - **Variable cible :**  
   `default.payment.next.month`  
 
 - **Métriques d’évaluation :**  
   - ROC-AUC  
-  - F1-score  
-  - Accuracy  
+  - F1-score   
 
 ---
 
@@ -122,7 +121,7 @@ Un modèle performant doit :
 
 - Suppression de la colonne **ID**  
 - Nettoyage des variables **EDUCATION** et **MARRIAGE**  
-- Pas de valeurs manquantes significatives  
+- Pas de valeurs manquantes  
 - Déséquilibre des classes  
 
 ---
@@ -172,7 +171,6 @@ Scores de validation croisée : [0.8639, 0.8625, 0.8654, 0.8854, 0.8846]
 
 - **ROC-AUC** → adaptée aux datasets déséquilibrés  
 - **F1-score** → équilibre précision / rappel  
-- **Accuracy** → performance globale  
 
 ---
 
