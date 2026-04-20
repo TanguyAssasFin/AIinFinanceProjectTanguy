@@ -1,229 +1,228 @@
-# Credit-Risk Modelling with Default of Credit Card Clients
+# Modélisation du Risque de Crédit – Défaut des Clients de Carte de Crédit
 
 ---
 
-## 1. Project Information
+## 1. Informations sur le projet
 
-- **Project Title:** Credit Risk Prediction using Machine Learning  
+- **Titre du projet :** Prédiction du risque de défaut de crédit avec le Machine Learning  
 
-- **Group Members:**  
+- **Membre du groupe :**  
   - Tanguy CONVERSET  
 
-- **Course Name:** AI In Finance  
-- **Instructor:** Nicolas De Roux & Mohamed EL FAKIR  
-- **Submission Date:** April 21, 2026  
+- **Cours :** AI In Finance  
+- **Enseignants :** Nicolas De Roux & Mohamed EL FAKIR  
+- **Date de rendu :** 21 avril 2026  
 
 ---
 
-## 2. Project Description
+## 2. Description du projet
 
-This project focuses on **credit risk modeling**, aiming to predict whether a credit card client will default on their payment.
+Ce projet porte sur la **modélisation du risque de crédit**, avec pour objectif de prédire si un client de carte de crédit va faire défaut sur son paiement.
 
-Financial institutions rely heavily on such models to assess customer risk before granting credit. Poor risk estimation can lead to significant financial losses, while accurate predictions improve profitability and decision-making.
+Les institutions financières utilisent ce type de modèle pour évaluer le risque client avant d’accorder un crédit. Une mauvaise estimation peut entraîner des pertes financières importantes, tandis qu’une prédiction fiable permet d’améliorer la prise de décision et la rentabilité.
 
-This project is particularly relevant for:
-- Banks and financial institutions  
-- Credit scoring systems  
-- Fintech companies  
-
----
-
-## 3. Project Goal
-
-The goal of this project is to **predict whether a client will default on their next payment** using financial and behavioral data.
-
-A successful model should:
-- Accurately identify high-risk clients  
-- Support credit decision-making  
-- Provide reliable risk scores  
+Ce projet est particulièrement pertinent pour :
+- Les banques et institutions financières  
+- Les systèmes de scoring de crédit  
+- Les entreprises fintech  
 
 ---
 
-## 4. Task Definition
+## 3. Objectif du projet
 
-- **Task Type:** Binary Classification  
+L’objectif est de **prédire si un client fera défaut le mois suivant**, à partir de données financières et comportementales.
 
-- **Input Variables:**  
-  Financial, demographic, and behavioral variables such as:
-  - Credit limit  
-  - Payment history  
-  - Billing amounts  
-  - Repayment amounts  
-  - Engineered features (credit usage, payment ratio, etc.)  
+Un modèle performant doit :
+- Identifier efficacement les clients à risque  
+- Aider à la prise de décision en matière de crédit  
+- Fournir un score de risque fiable  
 
-- **Target Variable:**  
+---
+
+## 4. Définition de la tâche
+
+- **Type de tâche :** Classification binaire  
+
+- **Variables d’entrée :**  
+  Variables financières, démographiques et comportementales telles que :
+  - Limite de crédit  
+  - Historique de paiement  
+  - Montants facturés  
+  - Montants remboursés  
+  - Variables créées (utilisation du crédit, ratio de paiement, etc.)  
+
+- **Variable cible :**  
   `default.payment.next.month`  
 
-- **Evaluation Metrics:**  
+- **Métriques d’évaluation :**  
   - ROC-AUC  
   - F1-score  
   - Accuracy  
 
 ---
 
-## 5. Dataset Description
+## 5. Description du dataset
 
-### Dataset Overview
+### Vue d’ensemble
 
-- **Number of samples:** 30,000  
-- **Number of features:** 27  
-- **Target variable:** default.payment.next.month  
-- **Source:** UCI Credit Card Default Dataset  
-
----
-
-### Feature Description
-
-| Feature | Description | Type |
-|--------|------------|------|
-| LIMIT_BAL | Credit limit | Numerical |
-| SEX | Gender | Categorical |
-| EDUCATION | Education level (cleaned) | Categorical |
-| MARRIAGE | Marital status (cleaned) | Categorical |
-| AGE | Age | Numerical |
-| PAY_0 to PAY_6 | Repayment status history | Ordinal |
-| BILL_AMT1 to BILL_AMT6 | Billing amounts | Numerical |
-| PAY_AMT1 to PAY_AMT6 | Payment amounts | Numerical |
-| utilisation_credit_moy | Average credit usage | Numerical |
-| utilisation_credit_max | Max credit usage | Numerical |
-| ratio_paiement | Payment ratio | Numerical |
-| age_group | Age group | Categorical |
+- **Nombre d’observations :** 30 000  
+- **Nombre de variables :** 27  
+- **Variable cible :** default.payment.next.month  
+- **Source :** UCI Credit Card Default Dataset  
 
 ---
 
-### Target Variable
+### Description des variables
 
-- **Name:** `default.payment.next.month`  
-- **Meaning:** Whether a client defaults next month  
-- **Values:**  
-  - 0 → No default  
-  - 1 → Default  
-
----
-
-### Data Types
-
-- Numerical variables (financial amounts, age)  
-- Categorical variables (gender, education, marriage)  
-- Ordinal variables (repayment history)  
-- Engineered features  
-
----
-
-### Data Distribution
-
-- Imbalanced dataset (fewer defaults)  
-- Skewed financial variables  
-- Presence of extreme values  
+| Variable | Description | Type |
+|----------|------------|------|
+| LIMIT_BAL | Limite de crédit | Numérique |
+| SEX | Genre | Catégorielle |
+| EDUCATION | Niveau d’éducation (nettoyé) | Catégorielle |
+| MARRIAGE | Statut marital (nettoyé) | Catégorielle |
+| AGE | Âge | Numérique |
+| PAY_0 à PAY_6 | Historique des retards de paiement | Ordinale |
+| BILL_AMT1 à BILL_AMT6 | Montants des factures | Numérique |
+| PAY_AMT1 à PAY_AMT6 | Montants remboursés | Numérique |
+| utilisation_credit_moy | Utilisation moyenne du crédit | Numérique |
+| utilisation_credit_max | Utilisation maximale du crédit | Numérique |
+| ratio_paiement | Ratio de paiement | Numérique |
+| age_group | Groupe d’âge | Catégorielle |
 
 ---
 
-### Data Quality
+### Variable cible
 
-- Removed **ID column**  
-- Cleaned **EDUCATION** and **MARRIAGE**  
-- No significant missing values  
-- Class imbalance present  
+- **Nom :** `default.payment.next.month`  
+- **Signification :** Indique si un client fera défaut le mois suivant  
+- **Valeurs :**  
+  - 0 → Pas de défaut  
+  - 1 → Défaut  
 
 ---
 
-## 6. Data Preprocessing
+### Types de données
 
-- Removed **ID column** (non-informative)  
-- Cleaned categorical variables  
-- Feature engineering:
+- Variables **numériques** (montants, âge)  
+- Variables **catégorielles** (genre, éducation, statut marital)  
+- Variables **ordinales** (historique de paiement)  
+- Variables **créées** (feature engineering)  
+
+---
+
+### Distribution des données
+
+- Dataset **déséquilibré** (moins de défauts que de non-défauts)  
+- Variables financières **asymétriques (skewed)**  
+- Présence de valeurs extrêmes  
+
+---
+
+### Qualité des données
+
+- Suppression de la colonne **ID**  
+- Nettoyage des variables **EDUCATION** et **MARRIAGE**  
+- Pas de valeurs manquantes significatives  
+- Déséquilibre des classes  
+
+---
+
+## 6. Prétraitement des données
+
+- Suppression de la colonne **ID** (non pertinente)  
+- Nettoyage des variables catégorielles  
+- Création de nouvelles variables :
   - `utilisation_credit_moy`
   - `utilisation_credit_max`
   - `ratio_paiement`
   - `age_group`
-- No scaling or encoding applied (tree-based models used)  
+- Aucun scaling ni encodage appliqué (modèles d’arbres utilisés)  
 
 ---
 
-## 7. Modeling Approach
+## 7. Approche de modélisation
 
-### Models Used
+### Modèles utilisés
 
-- Logistic Regression  
+- Régression Logistique  
 - Random Forest  
 - XGBoost  
-- MLP (Neural Network)  
+- MLP (réseau de neurones)  
 
 ---
 
-### Modeling Strategy
+### Stratégie de modélisation
 
-- Train/test split  
-- Logistic Regression as baseline  
-- Cross-validation on Random Forest  
+- Séparation train/test  
+- Régression logistique utilisée comme baseline  
+- Validation croisée sur Random Forest  
 
-Cross-validation scores:
-[0.8639, 0.8625, 0.8654, 0.8854, 0.8846]
+Scores de validation croisée : [0.8639, 0.8625, 0.8654, 0.8854, 0.8846]
 
 
-- Overfitting analysis:
-  - Train AUC: 0.9218  
-  - Test AUC: 0.8786  
+- Analyse de l’overfitting :
+  - AUC train : 0.9218  
+  - AUC test : 0.8786  
 
-- Probability calibration applied  
-
----
-
-### Evaluation Metrics
-
-- **ROC-AUC** → best for imbalanced classification  
-- **F1-score** → balance between precision and recall  
-- **Accuracy** → overall performance  
+- Calibration des probabilités appliquée  
 
 ---
 
-### Model Performance
+### Métriques d’évaluation
 
-#### Logistic Regression
-- AUC: 0.7283  
-- F1: 0.6656  
+- **ROC-AUC** → adaptée aux datasets déséquilibrés  
+- **F1-score** → équilibre précision / rappel  
+- **Accuracy** → performance globale  
+
+---
+
+### Performance des modèles
+
+#### Régression Logistique
+- AUC : 0.7283  
+- F1 : 0.6656  
 
 #### Random Forest
-- AUC: 0.8786  
-- F1: 0.7904  
+- AUC : 0.8786  
+- F1 : 0.7904  
 
 #### XGBoost
-- AUC: 0.8445  
-- F1: 0.7485  
+- AUC : 0.8445  
+- F1 : 0.7485  
 
 #### MLP
-- AUC: 0.8458  
-- F1: 0.7804  
+- AUC : 0.8458  
+- F1 : 0.7804  
 
 ---
 
-### Best Model
+### Meilleur modèle
 
-**Random Forest** achieved the best performance.
+👉 **Random Forest** est le modèle le plus performant.
 
 ---
 
 ### Calibration
 
-- Calibrated AUC: **0.9758**
+- AUC après calibration : **0.9758**
 
 ---
 
-## 8. Model Interpretability
+## 8. Interprétabilité du modèle
 
-### SHAP Insights
+### Analyse SHAP
 
-- **PAY_0** is the most important feature  
-- Payment history (PAY_X) is the strongest predictor  
-- High credit usage increases risk  
-- Low repayments increase default probability  
+- **PAY_0** est la variable la plus importante  
+- L’historique de paiement est le facteur clé  
+- Une utilisation élevée du crédit augmente le risque  
+- De faibles remboursements augmentent la probabilité de défaut  
 
 ---
 
-### Feature Importance (Top 10)
+### Importance des variables (Top 10)
 
-| Feature | Importance |
-|--------|----------|
+| Variable | Importance |
+|----------|----------|
 | PAY_0 | 0.187 |
 | PAY_2 | 0.084 |
 | utilisation_credit_max | 0.049 |
@@ -237,26 +236,15 @@ Cross-validation scores:
 
 ---
 
-### Key Insight
+### Insight clé
 
-> Past repayment behavior is the strongest predictor of future default.
-
----
-
-## 9. Project Structure
-project/
-│
-├── notebook.ipynb
-├── data/
-├── README.md
-└── requirements.txt
-
+> Le comportement de paiement passé est le meilleur prédicteur du défaut futur.
 
 ---
 
-## 10. Installation
+## 9. Installation
 
-Install dependencies:
+Installer les dépendances :
 
 ```bash
 pip install pandas numpy matplotlib seaborn scikit-learn xgboost shap kagglehub
