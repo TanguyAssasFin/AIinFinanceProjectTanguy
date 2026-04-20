@@ -1,281 +1,262 @@
-# Project Title
-
-⚠️ Replace this title with the **name of your project**
+# Credit-Risk Modelling with Default of Credit Card Clients
 
 ---
 
-# 1. Project Information
+## 1. Project Information
 
-Fill in the following information.
+- **Project Title:** Credit Risk Prediction using Machine Learning  
 
-- **Project Title:** [Insert project title]
-- **Group Name:** [Insert group name]
 - **Group Members:**  
-  - Student 1 – [Name]  
-  - Student 2 – [Name]  
-  - Student 3 – [Name]
+  - Tanguy CONVERSET  
 
-- **Course Name:** AI In Finance
-- **Instructor:** Nicolas De Roux & Mohamed EL FAKIR
-- **Submission Date:** [Insert date]
+- **Course Name:** AI In Finance  
+- **Instructor:** Nicolas De Roux & Mohamed EL FAKIR  
+- **Submission Date:** April 21, 2026  
 
 ---
 
-# 2. Project Description
+## 2. Project Description
 
-📌 **Instructions:**  
-Write a short paragraph explaining the **problem addressed by the project**.
+This project focuses on **credit risk modeling**, aiming to predict whether a credit card client will default on their payment.
 
-Include:
+Financial institutions rely heavily on such models to assess customer risk before granting credit. Poor risk estimation can lead to significant financial losses, while accurate predictions improve profitability and decision-making.
 
-- The context of the problem
-- Why the problem is interesting or important
-- Who might benefit from solving it
-
-✏️ **Write your description below:**
-
-[Replace this text with your project description]
+This project is particularly relevant for:
+- Banks and financial institutions  
+- Credit scoring systems  
+- Fintech companies  
 
 ---
 
-# 3. Project Goal
+## 3. Project Goal
 
-📌 **Instructions:**  
-Clearly explain **what the project aims to achieve**.
+The goal of this project is to **predict whether a client will default on their next payment** using financial and behavioral data.
 
-Your answer should describe:
-
-- What the system predicts, classifies, or analyzes
-- What a successful solution looks like
-
-Example goals:
-
-- Predict housing prices from property features
-- Classify medical images into disease categories
-- Detect sentiment in text reviews
-- Forecast electricity consumption
-
-✏️ **Write your project goal below:**
-
-[Replace this text with the goal of your project]
+A successful model should:
+- Accurately identify high-risk clients  
+- Support credit decision-making  
+- Provide reliable risk scores  
 
 ---
 
-# 4. Task Definition
+## 4. Task Definition
 
-📌 **Instructions:**  
-Define the **machine learning or data analysis task**.
+- **Task Type:** Binary Classification  
 
-Specify:
-
-- **Task Type:** (classification, regression, clustering, etc.)
-- **Input:** What data is used as input
-- **Output:** What the model predicts
-- **Evaluation Metric:** How performance will be measured
-
-✏️ **Fill in the following:**
-
-- **Task Type:**  
 - **Input Variables:**  
+  Financial, demographic, and behavioral variables such as:
+  - Credit limit  
+  - Payment history  
+  - Billing amounts  
+  - Repayment amounts  
+  - Engineered features (credit usage, payment ratio, etc.)  
+
 - **Target Variable:**  
-- **Evaluation Metric(s):**
+  `default.payment.next.month`  
+
+- **Evaluation Metrics:**  
+  - ROC-AUC  
+  - F1-score  
+  - Accuracy  
 
 ---
 
-# 5. Dataset Description
+## 5. Dataset Description
 
-📌 **Instructions:**  
-Describe the dataset used in the project.
+### Dataset Overview
 
-❗ Do **not simply name the dataset**. Instead explain its structure and contents.
-
----
-
-## Dataset Overview
-
-Provide general information about the dataset.
-
-Fill in:
-
-- **Number of samples:**  
-- **Number of features:**  
-- **Target variable:**  
-- **Data source:** [Link if applicable]
+- **Number of samples:** 30,000  
+- **Number of features:** 27  
+- **Target variable:** default.payment.next.month  
+- **Source:** UCI Credit Card Default Dataset  
 
 ---
 
-## Feature Description
-
-📌 **Instructions:**  
-List and describe the most important variables.
-
-Example table:
+### Feature Description
 
 | Feature | Description | Type |
-|------|------|------|
-| age | Age of individual | Numerical |
-| income | Annual income | Numerical |
-| gender | Gender category | Categorical |
-
-✏️ **Insert your feature description table here**
-
----
-
-## Target Variable
-
-📌 **Instructions:**  
-Explain what the model is trying to predict.
-
-Include:
-
-- Variable name
-- Meaning
-- Possible values (if classification)
-
-✏️ **Write your explanation here**
+|--------|------------|------|
+| LIMIT_BAL | Credit limit | Numerical |
+| SEX | Gender | Categorical |
+| EDUCATION | Education level (cleaned) | Categorical |
+| MARRIAGE | Marital status (cleaned) | Categorical |
+| AGE | Age | Numerical |
+| PAY_0 to PAY_6 | Repayment status history | Ordinal |
+| BILL_AMT1 to BILL_AMT6 | Billing amounts | Numerical |
+| PAY_AMT1 to PAY_AMT6 | Payment amounts | Numerical |
+| utilisation_credit_moy | Average credit usage | Numerical |
+| utilisation_credit_max | Max credit usage | Numerical |
+| ratio_paiement | Payment ratio | Numerical |
+| age_group | Age group | Categorical |
 
 ---
 
-## Data Types
+### Target Variable
 
-📌 **Instructions:**  
-Describe the types of variables present in the dataset.
-
-Examples:
-
-- Numerical
-- Categorical
-- Ordinal
-- Text
-- Time-series
-
-✏️ **Describe the column types here**
+- **Name:** `default.payment.next.month`  
+- **Meaning:** Whether a client defaults next month  
+- **Values:**  
+  - 0 → No default  
+  - 1 → Default  
 
 ---
 
-## Data Distribution
+### Data Types
 
-📌 **Instructions:**  
-Describe important distribution characteristics.
-
-Examples:
-
-- Class balance or imbalance
-- Skewed numerical variables
-- Range of key features
-
-✏️ **Describe the data distribution here**
+- Numerical variables (financial amounts, age)  
+- Categorical variables (gender, education, marriage)  
+- Ordinal variables (repayment history)  
+- Engineered features  
 
 ---
 
-## Data Quality
+### Data Distribution
 
-📌 **Instructions:**  
-Mention any issues found in the dataset.
-
-Examples:
-
-- Missing values
-- Outliers
-- Imbalanced classes
-- Duplicate entries
-
-✏️ **Describe any data quality issues here**
+- Imbalanced dataset (fewer defaults)  
+- Skewed financial variables  
+- Presence of extreme values  
 
 ---
 
-# 6. Data Preprocessing
+### Data Quality
 
-📌 **Instructions:**  
-Explain the preprocessing steps applied before modeling.
-
-Examples:
-
-- Handling missing values
-- Removing duplicates
-- Encoding categorical variables
-- Normalizing or scaling features
-- Feature engineering
-
-For each step briefly explain **why it was necessary**.
-
-✏️ **Describe your preprocessing steps here**
+- Removed **ID column**  
+- Cleaned **EDUCATION** and **MARRIAGE**  
+- No significant missing values  
+- Class imbalance present  
 
 ---
 
-# 7. Modeling Approach
+## 6. Data Preprocessing
 
-📌 **Instructions:**  
-Explain how you solved the problem.
-
----
-
-## Chosen Models
-
-List the models or algorithms used.
-
-Examples:
-
-- Linear Regression
-- Logistic Regression
-- Random Forest
-- Gradient Boosting
-- Neural Networks
-
-✏️ **List and describe the models used**
+- Removed **ID column** (non-informative)  
+- Cleaned categorical variables  
+- Feature engineering:
+  - `utilisation_credit_moy`
+  - `utilisation_credit_max`
+  - `ratio_paiement`
+  - `age_group`
+- No scaling or encoding applied (tree-based models used)  
 
 ---
 
-## Modeling Strategy
+## 7. Modeling Approach
 
-📌 **Instructions:**  
-Explain:
+### Models Used
 
-- Why you selected these models
-- Whether you used a baseline model
-- If hyperparameter tuning was performed
-- Whether cross-validation was used
-
-✏️ **Explain your modeling strategy**
+- Logistic Regression  
+- Random Forest  
+- XGBoost  
+- MLP (Neural Network)  
 
 ---
 
-## Evaluation Metrics
+### Modeling Strategy
 
-📌 **Instructions:**  
-Specify the metrics used to evaluate model performance.
+- Train/test split  
+- Logistic Regression as baseline  
+- Cross-validation on Random Forest  
 
-Examples:
+Cross-validation scores:
+[0.8639, 0.8625, 0.8654, 0.8854, 0.8846]
 
-- Accuracy
-- Precision / Recall
-- F1-score
-- ROC-AUC
-- Mean Absolute Error
-- RMSE
 
-Also explain **why these metrics are appropriate**.
+- Overfitting analysis:
+  - Train AUC: 0.9218  
+  - Test AUC: 0.8786  
 
-✏️ **Describe your evaluation metrics**
+- Probability calibration applied  
 
 ---
 
-# 8. Project Structure
+### Evaluation Metrics
 
-📌 **Instructions:**  
-Explain how the repository is organized.
-
-
-If you added additional folders, explain them.
+- **ROC-AUC** → best for imbalanced classification  
+- **F1-score** → balance between precision and recall  
+- **Accuracy** → overall performance  
 
 ---
 
-# 9. Installation
+### Model Performance
 
-📌 **Instructions:**  
-Explain how to install project dependencies.
+#### Logistic Regression
+- AUC: 0.7283  
+- F1: 0.6656  
 
-Example:
+#### Random Forest
+- AUC: 0.8786  
+- F1: 0.7904  
+
+#### XGBoost
+- AUC: 0.8445  
+- F1: 0.7485  
+
+#### MLP
+- AUC: 0.8458  
+- F1: 0.7804  
+
+---
+
+### Best Model
+
+**Random Forest** achieved the best performance.
+
+---
+
+### Calibration
+
+- Calibrated AUC: **0.9758**
+
+---
+
+## 8. Model Interpretability
+
+### SHAP Insights
+
+- **PAY_0** is the most important feature  
+- Payment history (PAY_X) is the strongest predictor  
+- High credit usage increases risk  
+- Low repayments increase default probability  
+
+---
+
+### Feature Importance (Top 10)
+
+| Feature | Importance |
+|--------|----------|
+| PAY_0 | 0.187 |
+| PAY_2 | 0.084 |
+| utilisation_credit_max | 0.049 |
+| PAY_3 | 0.049 |
+| utilisation_credit_moy | 0.048 |
+| PAY_4 | 0.044 |
+| PAY_AMT1 | 0.042 |
+| PAY_5 | 0.038 |
+| PAY_AMT2 | 0.037 |
+| BILL_AMT1 | 0.037 |
+
+---
+
+### Key Insight
+
+> Past repayment behavior is the strongest predictor of future default.
+
+---
+
+## 9. Project Structure
+project/
+│
+├── notebook.ipynb
+├── data/
+├── README.md
+└── requirements.txt
+
+
+---
+
+## 10. Installation
+
+Install dependencies:
 
 ```bash
-pip install -r requirements.txt
+pip install pandas numpy matplotlib seaborn scikit-learn xgboost shap kagglehub
